@@ -1,7 +1,7 @@
 This SpaceClaim script was created to fulfill the thesis requirements of Keith Sequeira (MSc Computational Fluid Dynamics, IRP - 2024), titled "Establishing Best Practices for Modelling Jet Blast"
 
 Assistance
-This script was developed with assistance from **ChatGPT** and **Bing AI**.
+This script was developed with assistance from ChatGPT and Bing AI.
 
 Script Files
 The following Python scripts for SpaceClaim are included:
