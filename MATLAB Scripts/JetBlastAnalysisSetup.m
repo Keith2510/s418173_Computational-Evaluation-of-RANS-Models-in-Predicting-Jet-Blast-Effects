@@ -1,4 +1,4 @@
-% This MATLAB script was created to fulfill the thesis requirements of Keith Sequeira (Msc Computational Fluid Dynamics, IRP: 2023-24),, titled "Jet Blast Prediction in Complex Flow Scenarios: A Study of Turbulence Model Performance."
+% This MATLAB script was created to fulfill the thesis requirements of Keith Sequeira (Msc Computational Fluid Dynamics, IRP: 2023-24),, titled "Computational Evaluation of RANS Models in Predicting Jet Blast Effects."
 % This MATLAB code was made with assistance from ChatGPT, Bing AI and Perplexity
 % Special thanks to Dr. Tamás Józsa for his assitance in troubleshooting issues with the script
 
@@ -51,7 +51,7 @@ kosst_radial_hundred_data = load(""); % k-omega SST data
 koGEKO_radial_hundred_data = load(""); % k-omega GEKO data
 rsm_radial_hundred_data = load(""); % RSM data
 
-% Load data from .dat files
+% Normalized Vertical Velocity Data
 % ------------------------------
 kep_vertical_data = load(""); % Vertical jet spread data for kepsilon model
 sa_vertical_data = load("");  % Vertical jet spread data for SA model
@@ -327,7 +327,7 @@ plot(x_theory, Uc_theory, 'k:', 'LineWidth', 2, 'DisplayName', 'Theoretical Mode
 
 xlabel('\xi');
 ylabel('U_c/U_j');
-legend('show');
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 hold off;
 
@@ -486,6 +486,13 @@ U_radial_komega_geko = koGEKO_radial_fifty_data(:, 2);
 r_rsm_lps = rsm_radial_fifty_data(:, 1);
 U_radial_rsm_lps = rsm_radial_fifty_data(:, 2);
 
+% Normalize radial distances by diameter D
+r_kep = r_kep / D;
+r_sa = r_sa / D;
+r_komega_sst = r_komega_sst / D;
+r_komega_geko = r_komega_geko / D;
+r_rsm_lps = r_rsm_lps / D;
+
 % Extract reference radial positions and velocities
 r_ref = Reference_radial_Maslov(:, 1);
 U_radial_ref = Reference_radial_Maslov(:, 2);
@@ -623,7 +630,7 @@ yticks(0:0.2:1);
 
 xlabel('\eta');
 ylabel('U / U_{c}');
-legend('Location', 'best');
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 hold off;
 
@@ -649,6 +656,14 @@ U_vertical_rsm_lps = rsm_lps_vertical_data(:, 2);
 % Load and extract Maslov data
 y_maslov = Reference_vertical_Maslov(:, 2);
 U_vertical_maslov = Reference_vertical_Maslov(:, 1);
+
+% Normalize radial distances by diameter D
+y_kep = y_kep / D;
+y_sa = y_sa / D;
+y_komega_sst = y_komega_sst / D;
+y_komega_geko = y_komega_geko / D;
+y_rsm_lps = y_rsm_lps / D;
+
 
 % Define a function to remove duplicates and sort data
 function [v_unique_sorted, U_unique_sorted] = unique_sorted(v, U)
@@ -771,7 +786,7 @@ ylim(y_limit);
 xlabel('U / U_c'); % Label for the x-axis
 ylabel('\zeta'); % Label for the y-axis
 title('Normalized Vertical Velocity Profiles for Different Turbulence Models');
-legend('Location', 'best');
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 hold off;
 
@@ -828,7 +843,7 @@ plot(X_rsm_lps_sorted, Uc_normalized_rsm_lps_sorted, '-', 'LineWidth', 2, 'Displ
 
 xlabel('X/D');
 ylabel('U_c/U_j');
-legend('show');
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 hold off;
 
@@ -1170,7 +1185,7 @@ grid on;
 legend({'Total Time'}, 'Location', 'southoutside', 'Orientation', 'horizontal');
 
 
-%% Ground Friction Velocity Data %%%%%%%%%%%%%%%%%%%%
+%% Ground Friction Velocity Data_Bar Graph %%%%%%%%%%%%%%%%%%%%
 % Calculate Friction Velocity u_*
 u_tau_kep = sqrt(tau_w_kep / rho);
 u_tau_sa = sqrt(tau_w_sa / rho);
@@ -1278,7 +1293,7 @@ plot(referenceRadialCoordinate, referenceVelocity, 'ro', 'LineWidth', 2, 'Displa
 xlabel('X/D');
 ylabel('r_{0.5} / D');
 title('Jet Spread Comparison');
-legend('show');
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 
 % Calculate the spreading rate dr0_5/dx for each model
@@ -1380,7 +1395,7 @@ plot(referenceVerticalCoordinate, referenceVelocity_vj, 'ro', 'LineWidth', 2, 'D
 % Configure plot appearance
 xlabel('X/D');
 ylabel('y_{0.5} / D');
-legend('show');
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 
 
@@ -1569,7 +1584,7 @@ xlabel('X/D');
 ylabel('r_{0.5} / y_{0.5}');
 xlim([0 500]);
 ylim([0 6]); 
-legend show; 
+legend('show', 'Location', 'southoutside', 'Orientation', 'horizontal');
 grid on;
 hold off;
 

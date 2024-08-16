@@ -1,4 +1,4 @@
-# This Spaceclaim script was created to fulfill the thesis requirements of Keith Sequeira (Msc Computational Fluid Dynamics, IRP -2024), titled "Jet Blast Prediction in Complex Flow Scenarios: A Study of Turbulence Model Performance."
+# This Spaceclaim script was created to fulfill the thesis requirements of Keith Sequeira (Msc Computational Fluid Dynamics, IRP -2024), titled "Computational Evaluation of RANS Models in Predicting Jet Blast Effects."
 # This script was made with assistance from ChatGPT and Bing AI
 
 # Python Script, API Version = V232
