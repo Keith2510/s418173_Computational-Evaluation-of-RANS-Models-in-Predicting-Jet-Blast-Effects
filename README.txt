@@ -1,7 +1,7 @@
 
 # Computational Evaluation of RANS Models in Predicting Jet Blast Effects.
 
-This repository contains the scripts developed for the thesis "Computational Evaluation of RANS Models in Predicting Jet Blast Effects." by Keith Sequeira (MSc Computational Fluid Dynamics, IRP - 2024). The scripts included here are essential for the modeling, analysis and visualization tasks performed in the thesis, focusing on the study of turbulence models in jet blast scenarios.
+This repository contains the scripts developed for the thesis "Computational Evaluation of RANS Models in Predicting Jet Blast Effects." by Keith Sequeira (MSc Computational Fluid Dynamics, IRP - 2024). The scripts included here are essential for the modelling, analysis and visualization tasks performed in the thesis, focusing on the study of turbulence models in jet blast scenarios.
 
 ## Repository Structure
 
@@ -23,7 +23,7 @@ The repository is organized into two main folders:
      - The script requires user input for the inlet (cylinder outlet) and for specifying the dimensions of both the cylinders and the domain.
 
 2. **MATLAB Scripts**
-   - This folder contains MATLAB scripts for performing various analyses related to the jet blast simulations, including hazardous zone calculations, iteration studies, and mesh independence studies. The scripts included are:
+   - This folder contains MATLAB scripts for performing various analyses related to the jet blast simulations including hazardous zone calculations, iteration studies and mesh independence studies. The scripts included are:
 
    - `Hazardous_Zone.m`:
      - Calculates the hazardous region around the jet based on a specified velocity limit.
