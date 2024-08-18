@@ -1611,6 +1611,10 @@ num_models = length(models);
 % Alphabet labels for subplots
 alphabet_labels = 'abcdefghijklmnopqrstuvwxyz';
 
+% Initialize a cell array to store plot handles and labels for the common legend
+common_plot_handles = [];
+common_legend_labels = {};
+
 % Loop through each turbulence model
 for m = 1:num_models
     % Get file list for current turbulence model
@@ -1623,7 +1627,7 @@ for m = 1:num_models
     % Get custom legend labels for the current turbulence model
     current_legend_labels = legend_labels(m, :); % Correct indexing
     
-    % Initialize a cell array to store plot handles for legend
+    % Initialize a cell array to store plot handles for this subplot
     plot_handles = [];
     
     % Loop through each file for the current turbulence model
@@ -1656,9 +1660,15 @@ for m = 1:num_models
         
         % Plot self-similar profile for this dataset
         if ~isnan(r0_5)
-            % Store plot handle for legend
+            % Plot the data
             h = plot(r / r0_5, U_norm, 'LineWidth', 2);
             plot_handles = [plot_handles, h];
+            
+            % Add the first model's legend labels to common_legend_labels
+            if m == 1
+                common_plot_handles = [common_plot_handles, h];
+                common_legend_labels = [common_legend_labels, current_legend_labels{i}];
+            end
         else
             warning('r0.5 could not be determined for file: %s', files{i});
         end
@@ -1667,9 +1677,6 @@ for m = 1:num_models
     % Customize the plot for the current turbulence model
     xlabel('r / r_{0.5}');
     ylabel('U / U_{c}');
-    
-    % Add legend with custom labels
-    legend(plot_handles, current_legend_labels, 'Location', 'best'); % Create legend with custom labels
     
     % Add subplot label
     text(-0.1, 1.1, sprintf('(%c)', alphabet_labels(m)), 'Units', 'normalized', 'FontSize', 12, 'FontWeight', 'bold');
@@ -1680,6 +1687,20 @@ for m = 1:num_models
     hold off; % Release the hold for future plots
 end
 
+% Add a common legend for all subplots at the bottom of the last subplot
+% Create a new axes that spans the width of the last subplot
+last_subplot = subplot(num_models, 1, num_models);
+pos = get(last_subplot, 'Position');
+legend_axes = axes('Position', pos, 'Visible', 'off');
+
+% Add the legend to the new axes with increased font size and adjusted position
+hLegend = legend(legend_axes, common_plot_handles, common_legend_labels, 'Location', 'southoutside', 'Orientation', 'horizontal');
+set(hLegend, 'FontSize', 10); % Increase the font size of the legend
+
+% Adjust the position of the legend to push it further down
+legend_pos = get(hLegend, 'Position');
+legend_pos(2) = legend_pos(2) - 0.1; % Decrease the bottom position value to push the legend down
+set(hLegend, 'Position', legend_pos);
 
 
 %% JPEG Plot Names
