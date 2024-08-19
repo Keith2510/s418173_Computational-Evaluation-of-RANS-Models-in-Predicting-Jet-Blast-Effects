@@ -31,7 +31,7 @@ The repository is organized into two main folders:
      - To be noted that this script takes a significant amount of time to give plots
 
    - `Iteration_Study.m`:
-     - Analyses and visualizes the results of an iteration study, focusing on key variables such as x-velocity, static temperature and turbulent kinetic energy across different iterations.
+     - Analyses and visualizes the results of an iteration study, focusing on key variables such as x-velocity, static temperature and turbulent kinetic energy across different iterations along with mass flow rate and forces.
      - The script requires user inputs, which are provided in a dedicated section at the beginning.
 
    - `Jet_Blast_Analysis_Setup.m`:
@@ -39,7 +39,7 @@ The repository is organized into two main folders:
      - Includes a user input section at the beginning.
 
    - `Mesh_Independence_Study.m`:
-     - Compares results across different mesh configurations, focusing on x-velocity, static temperature, and turbulent kinetic energy.
+     - Compares results across different mesh configurations, focusing on x-velocity, static temperature and turbulent kinetic energy.
      - Useful for ensuring that the simulation results are independent of the mesh resolution.
 
 ## Usage Instructions
@@ -64,7 +64,7 @@ The repository is organized into two main folders:
   - MATLAB for running the analysis scripts.
 
 ## Acknowledgments
-Special thank you to my supervisor Tamás Józsa for his assistance in troubleshooting the Jet_Blast_Analysis_Setup.m MATLAB script fix. This repository was also developed with assistance from ChatGPT and Bing AI, which contributed to the scripting and automation processes.
+Special thank you to my supervisor Tamás Józsa for his assistance in troubleshooting the Jet_Blast_Analysis_Setup.m MATLAB script fix. The scripts in this repository were developed with assistance from ChatGPT and Bing AI, which contributed to the scripting and automation processes.
 
 
 
@@ -76,6 +76,7 @@ Contact
 For questions or feedback, please reach out to:  
 Keith Sequeira
 K.Sequeira.173@Cranfield.ac.uk
+www.linkedin.com/in/keithsequeira2510
 MSc Computational Fluid Dynamics, Cranfield University
 
 ---
