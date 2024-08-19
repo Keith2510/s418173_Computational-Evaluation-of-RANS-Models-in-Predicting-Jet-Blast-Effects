@@ -1,5 +1,5 @@
 % This MATLAB script was created to fulfill the thesis requirements of Keith Sequeira (MSc Computational Fluid Dynamics, IRP -2024), titled "Computational Evaluation of RANS Models in Predicting Jet Blast Effects."
-% This MATLAB code was made with assistance from ChatGPT and Bing AI
+% This MATLAB code was made with assistance from ChatGPT, Bing AI and Perplexity
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% INPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
